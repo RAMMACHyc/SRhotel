@@ -1,23 +1,14 @@
 
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    if(isset($_POST['submit'])){
+        $registerUser = new admincontroller();
+        $registerUser->register();
+    }
+?>
+<?php require './views/includes/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Register Template</title>
-    <meta name="author" content="David Grzyb">
-    <meta name="description" content="">
 
-    <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-        .font-family-karla {
-            font-family: karla;
-        }
-    </style>
-</head>
+
 
 <body class="bg-white font-family-karla h-screen">
 
@@ -25,38 +16,35 @@
 
         <!-- Register Section -->
         <div class="w-full md:w-1/2 flex flex-col">
+          <?php include('./views/includes/alerts.php');?>
 
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-12">
-                <a href="register.html" class="bg-black text-white font-bold text-xl p-4" alt="Logo">Logo</a>
+            <a href="index"><img class="w-32" src="images/Black Gold Elegant Illustration Fashion Brand Logo.png" alt=""></a>
             </div>
 
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <p class="text-center text-3xl">Join Us.</p>
-                <form class="flex flex-col pt-3 md:pt-8" onsubmit="event.preventDefault();">
+                <p class="text-center dark:text-white font-bold text-3xl">Join Us.</p>
+                <form method="POST" class="flex flex-col pt-3 md:pt-8" >
                     <div class="flex flex-col pt-4">
-                        <label for="name" class="text-lg">Name</label>
-                        <input type="text" id="name" placeholder="John Smith" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <label for="name" class="text-lg dark:text-slate-400">Name</label>
+                        <input method="post" type="text" name="username" placeholder="your name" class="shadow bg-gray-700 appearance-none border-purple-900 border rounded w-full py-2 px-3 text-gray-100 mt-1 leading-tight focus:outline-none focus:shadow-outline " required />
                     </div>
 
                     <div class="flex flex-col pt-4">
-                        <label for="email" class="text-lg">Email</label>
-                        <input type="email" id="email" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <label for="email" class="text-lg dark:text-slate-400">Email</label>
+                        <input method="post" type="email" name="email" placeholder="your@email.com" class="shadow bg-gray-700 appearance-none border-purple-900 border rounded w-full py-2 px-3 text-gray-100 mt-1 leading-tight focus:outline-none focus:shadow-outline " required/>
                     </div>
 
                     <div class="flex flex-col pt-4">
-                        <label for="password" class="text-lg">Password</label>
-                        <input type="password" id="password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <label for="password" class="text-lg dark:text-slate-400">Password</label>
+                        <input method="post" type="password" name="password"  placeholder="**********" class="shadow bg-gray-700 appearance-none border-purple-900 border rounded w-full py-2 px-3 text-gray-100 mt-1 leading-tight focus:outline-none focus:shadow-outline " required/>
                     </div>
 
-                    <div class="flex flex-col pt-4">
-                        <label for="confirm-password" class="text-lg">Confirm Password</label>
-                        <input type="password" id="confirm-password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
-                    </div>
-
-                    <input type="submit" value="Register" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
+                    <button type="submit" name="submit" class="bg-black text-white font-bold text-lg hover:bg-gray-900  p-2 mt-8 rounded" >register</button>
+                    <!-- <input method="post" type="submit" name="submit" value="Register" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" /> -->
                 </form>
                 <div class="text-center pt-12 pb-12">
-                    <p>Already have an account? <a href="login.html" class="underline font-semibold">Log in here.</a></p>
+                    <p>Already have an account? <a href="login" class="underline text-purple-900 font-semibold">Log in here.</a></p>
                 </div>
             </div>
 

@@ -5,21 +5,21 @@ class RoomController
 
 	public function getAllRooms()
 	{
-		$rooms = Room::getAll();
-		return $rooms;
+		$bedroom = Room::getAll();
+		return $bedroom;
 	}
 
 	public function addRoom() {
 		if (isset($_POST['submit'])) {
 		  // Check if any of the form fields are empty
-		  if (empty($_POST['name']) || empty($_POST['prix']) || empty($_FILES['image']) || empty($_POST['date'])) {
+		  if (empty($_POST['number']) || empty($_POST['size']) || empty($_FILES['image']) || empty($_POST['bed_type'])) {
 			// Display error message
 			echo "All form fields are required. Please fill out the form and try again.";
 		  } else {
 			$data = array(
-			  'name' => $_POST['name'],
-			  'prix' => $_POST['prix'],
-			  'date' => $_POST['date'],
+			  'name' => $_POST['number'],
+			  'size' => $_POST['size'],
+			  'bed_type' => $_POST['bed_type'],
 			  'image' => file_get_contents($_FILES['image']['tmp_name']),
 			);
 			
@@ -33,14 +33,14 @@ class RoomController
 		  }
 		}
 	  }
-	//   _____________________________________________++
+	 //   _____________________________________________++
 	  public function getOneRoom(){
 		if (isset($_POST['id'])) {
 			$data = array(
 				'id' => $_POST['id'],
 			);
-		$travell = Room::getRoom($data);
-		return $travell;
+		$bedroom = Room::getRoom($data);
+		return $bedroom;
 
 		}
 	}
@@ -50,9 +50,9 @@ class RoomController
 		if (isset($_POST['submit'])) {
 			$data = array(
 				'id' => $_POST['id'],
-				'name' => $_POST['name'],
-				'prix' => $_POST['prix'],
-				'date' => $_POST['date'],
+				'number' => $_POST['number'],
+				'size' => $_POST['size'],
+				'bed_type' => $_POST['bed_type'],
 			);
 	
 			// Check if an image was selected
@@ -61,9 +61,9 @@ class RoomController
 				$data['image'] = file_get_contents($_FILES['image']['tmp_name']);
 			} else {
 				// Get the old image from the database
-				$travell = Room::getRoom($data);
+				$bedroom = Room::getRoom($data);
 				// Add the old image to the data array
-				$data['image'] = $travell->image;
+				$data['image'] = $bedroom->image;
 			}
 	
 			$result = Room::update($data);
@@ -79,7 +79,7 @@ class RoomController
 			$data['id'] = $_POST['id'];
 			$result = Room::delete($data);
 			if($result === 'ok'){
-				Redirect::to('tours');
+				Redirect::to('Rooms');
 			}else{
 				echo $result;
 			}

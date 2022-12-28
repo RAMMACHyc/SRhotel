@@ -2,12 +2,14 @@
 <?php
 class user{
     static public function moderat($data){
-        $username = $data['username'];
+        $email = $data['email'];
+       
 
         try {
-            $query = 'SELECT * FROM users WHERE username=:username';
+            $query = 'SELECT * FROM users WHERE email=:email';
             $statement = DB::connect()->prepare($query);
-            $statement->execute(array(":username" => $username));
+            $statement->execute(array(":email" => $email));
+
             $user = $statement->fetch(PDO::FETCH_OBJ);
 
             return $user ;
@@ -18,9 +20,9 @@ class user{
         }
     }
     static public function createUser($data){
-        $stmt = DB::connect()->prepare('INSERT INTO users (fullname,username,password)
-            VALUES (:fullname,:username,:password)');
-        $stmt->bindParam(':fullname',$data['fullname']);
+        $stmt = DB::connect()->prepare('INSERT INTO users (username,email,password,role)
+            VALUES (:username,:email,:password,1)');
+        $stmt->bindParam(':email',$data['email']);
         $stmt->bindParam(':username',$data['username']);
         $stmt->bindParam(':password',$data['password']);
 

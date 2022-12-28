@@ -1,104 +1,7 @@
-<!doctype html>
-<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<?php require './views/includes/header.php'; ?>
 
-<body class="dark:bg-gray-600">
-    <div class="container mx-auto">
-
-
-        <body class="bg-gray-50">
-            <nav class="relative px-4 py-4 flex justify-between items-center dark:bg-gray-700">
-                <!-- <a class="text-3xl font-bold leading-none" href="#">
-                    <svg class="h-10" alt="logo" viewBox="0 0 10240 10240">
-                    <path xmlns="http://www.w3.org/2000/svg" d="M8284 9162 c-2 -207 -55 -427 -161 -667 -147 -333 -404 -644 -733 -886 -81 -59 -247 -169 -256 -169 -3 0 -18 -9 -34 -20 -26 -19 -344 -180 -354 -180 -3 0 -29 -11 -58 -24 -227 -101 -642 -225 -973 -290 -125 -25 -397 -70 -480 -80 -22 -3 -76 -9 -120 -15 -100 -13 -142 -17 -357 -36 -29 -2 -98 -7 -153 -10 -267 -15 -436 -28 -525 -40 -14 -2 -45 -7 -70 -10 -59 -8 -99 -14 -130 -20 -14 -3 -41 -7 -60 -11 -19 -3 -39 -7 -45 -8 -5 -2 -28 -6 -50 -10 -234 -45 -617 -165 -822 -257 -23 -10 -45 -19 -48 -19 -7 0 -284 -138 -340 -170 -631 -355 -1107 -842 -1402 -1432 -159 -320 -251 -633 -308 -1056 -26 -190 -27 -635 -1 -832 3 -19 7 -59 10 -89 4 -30 11 -84 17 -120 6 -36 12 -77 14 -91 7 -43 33 -174 39 -190 3 -8 7 -28 9 -45 6 -35 52 -221 72 -285 7 -25 23 -79 35 -120 29 -99 118 -283 189 -389 67 -103 203 -244 286 -298 75 -49 178 -103 196 -103 16 0 27 16 77 110 124 231 304 529 485 800 82 124 153 227 157 230 3 3 28 36 54 74 116 167 384 497 546 671 148 160 448 450 560 542 14 12 54 45 90 75 88 73 219 172 313 238 42 29 77 57 77 62 0 5 -13 34 -29 66 -69 137 -149 405 -181 602 -7 41 -14 82 -15 90 -1 8 -6 46 -10 83 -3 37 -8 77 -10 88 -2 11 -7 65 -11 122 -3 56 -8 104 -9 107 -2 3 0 12 5 19 6 10 10 8 15 -10 10 -34 167 -346 228 -454 118 -210 319 -515 340 -515 4 0 40 18 80 40 230 128 521 255 787 343 118 40 336 102 395 113 28 5 53 11 105 23 25 5 59 12 75 15 17 3 41 8 55 11 34 7 274 43 335 50 152 18 372 29 565 29 194 0 481 -11 489 -19 2 -3 -3 -6 -12 -6 -9 -1 -20 -2 -24 -3 -33 -8 -73 -16 -98 -21 -61 -10 -264 -56 -390 -90 -649 -170 -1243 -437 -1770 -794 -60 -41 -121 -82 -134 -93 l-24 -18 124 -59 c109 -52 282 -116 404 -149 92 -26 192 -51 220 -55 17 -3 64 -12 105 -21 71 -14 151 -28 230 -41 19 -3 46 -7 60 -10 14 -2 45 -7 70 -10 25 -4 56 -8 70 -10 14 -2 53 -7 88 -10 35 -4 71 -8 81 -10 10 -2 51 -6 92 -9 101 -9 141 -14 147 -21 3 -3 -15 -5 -39 -6 -24 0 -52 -2 -62 -4 -21 -4 -139 -12 -307 -22 -242 -14 -700 -7 -880 13 -41 4 -187 27 -250 39 -125 23 -274 68 -373 111 -43 19 -81 34 -86 34 -4 0 -16 -8 -27 -17 -10 -10 -37 -33 -59 -52 -166 -141 -422 -395 -592 -586 -228 -257 -536 -672 -688 -925 -21 -36 -43 -66 -47 -68 -4 -2 -8 -7 -8 -11 0 -5 -24 -48 -54 -97 -156 -261 -493 -915 -480 -935 2 -3 47 -21 101 -38 54 -18 107 -36 118 -41 58 -25 458 -138 640 -181 118 -27 126 -29 155 -35 14 -2 45 -9 70 -14 66 -15 137 -28 300 -55 37 -7 248 -33 305 -39 28 -3 84 -9 125 -13 163 -16 792 -8 913 12 12 2 58 9 102 15 248 35 423 76 665 157 58 19 134 46 170 60 86 33 344 156 348 166 2 4 8 7 13 7 14 0 205 116 303 184 180 126 287 216 466 396 282 281 511 593 775 1055 43 75 178 347 225 455 100 227 236 602 286 790 59 220 95 364 120 485 6 28 45 245 50 275 2 14 7 41 10 60 3 19 8 49 10 65 2 17 6 46 9 65 15 100 35 262 40 335 3 39 8 89 10 112 22 225 33 803 21 1043 -3 41 -7 129 -11 195 -3 66 -8 136 -10 155 -2 19 -6 76 -10 125 -3 50 -8 101 -10 115 -2 14 -6 57 -10 95 -7 72 -12 113 -20 175 -2 19 -7 55 -10 80 -6 46 -43 295 -51 340 -2 14 -9 54 -15 90 -5 36 -16 97 -24 135 -8 39 -17 84 -20 100 -12 68 -18 97 -50 248 -19 87 -47 204 -61 260 -14 56 -27 109 -29 117 -30 147 -232 810 -253 832 -4 4 -7 -23 -8 -60z"></path>
-                </svg>
-                </a> -->
-                <div class="lg:hidden">
-                    <button class="navbar-burger flex items-center text-blue-600 p-3">
-                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <title>Mobile menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                    </svg>
-                </button>
-                </div>
-                <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="index">Home</a></li>
-                    <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                    </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="about">About Us</a></li>
-                    <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
-                    </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Romms</a></li>
-                    <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
-                    </li>
-
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="contact">Contact</a></li>
-                </ul>
-                <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="register">Sign In</a>
-                <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="login">Sign up</a>
-                <img class="p-1 w-10 h-10 rounded-full ring-2 ml-2 ring-gray-300 dark:ring-gray-500" src="images/1671216243066.jpg" alt="Bordered avatar">
-
-            </nav>
-            <div class="navbar-menu relative z-50 hidden">
-                <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-                <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
-                    <div class="flex items-center mb-8">
-                        <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                            <svg class="h-12" alt="logo" viewBox="0 0 10240 10240">
-                            <path xmlns="http://www.w3.org/2000/svg" d="M8284 9162 c-2 -207 -55 -427 -161 -667 -147 -333 -404 -644 -733 -886 -81 -59 -247 -169 -256 -169 -3 0 -18 -9 -34 -20 -26 -19 -344 -180 -354 -180 -3 0 -29 -11 -58 -24 -227 -101 -642 -225 -973 -290 -125 -25 -397 -70 -480 -80 -22 -3 -76 -9 -120 -15 -100 -13 -142 -17 -357 -36 -29 -2 -98 -7 -153 -10 -267 -15 -436 -28 -525 -40 -14 -2 -45 -7 -70 -10 -59 -8 -99 -14 -130 -20 -14 -3 -41 -7 -60 -11 -19 -3 -39 -7 -45 -8 -5 -2 -28 -6 -50 -10 -234 -45 -617 -165 -822 -257 -23 -10 -45 -19 -48 -19 -7 0 -284 -138 -340 -170 -631 -355 -1107 -842 -1402 -1432 -159 -320 -251 -633 -308 -1056 -26 -190 -27 -635 -1 -832 3 -19 7 -59 10 -89 4 -30 11 -84 17 -120 6 -36 12 -77 14 -91 7 -43 33 -174 39 -190 3 -8 7 -28 9 -45 6 -35 52 -221 72 -285 7 -25 23 -79 35 -120 29 -99 118 -283 189 -389 67 -103 203 -244 286 -298 75 -49 178 -103 196 -103 16 0 27 16 77 110 124 231 304 529 485 800 82 124 153 227 157 230 3 3 28 36 54 74 116 167 384 497 546 671 148 160 448 450 560 542 14 12 54 45 90 75 88 73 219 172 313 238 42 29 77 57 77 62 0 5 -13 34 -29 66 -69 137 -149 405 -181 602 -7 41 -14 82 -15 90 -1 8 -6 46 -10 83 -3 37 -8 77 -10 88 -2 11 -7 65 -11 122 -3 56 -8 104 -9 107 -2 3 0 12 5 19 6 10 10 8 15 -10 10 -34 167 -346 228 -454 118 -210 319 -515 340 -515 4 0 40 18 80 40 230 128 521 255 787 343 118 40 336 102 395 113 28 5 53 11 105 23 25 5 59 12 75 15 17 3 41 8 55 11 34 7 274 43 335 50 152 18 372 29 565 29 194 0 481 -11 489 -19 2 -3 -3 -6 -12 -6 -9 -1 -20 -2 -24 -3 -33 -8 -73 -16 -98 -21 -61 -10 -264 -56 -390 -90 -649 -170 -1243 -437 -1770 -794 -60 -41 -121 -82 -134 -93 l-24 -18 124 -59 c109 -52 282 -116 404 -149 92 -26 192 -51 220 -55 17 -3 64 -12 105 -21 71 -14 151 -28 230 -41 19 -3 46 -7 60 -10 14 -2 45 -7 70 -10 25 -4 56 -8 70 -10 14 -2 53 -7 88 -10 35 -4 71 -8 81 -10 10 -2 51 -6 92 -9 101 -9 141 -14 147 -21 3 -3 -15 -5 -39 -6 -24 0 -52 -2 -62 -4 -21 -4 -139 -12 -307 -22 -242 -14 -700 -7 -880 13 -41 4 -187 27 -250 39 -125 23 -274 68 -373 111 -43 19 -81 34 -86 34 -4 0 -16 -8 -27 -17 -10 -10 -37 -33 -59 -52 -166 -141 -422 -395 -592 -586 -228 -257 -536 -672 -688 -925 -21 -36 -43 -66 -47 -68 -4 -2 -8 -7 -8 -11 0 -5 -24 -48 -54 -97 -156 -261 -493 -915 -480 -935 2 -3 47 -21 101 -38 54 -18 107 -36 118 -41 58 -25 458 -138 640 -181 118 -27 126 -29 155 -35 14 -2 45 -9 70 -14 66 -15 137 -28 300 -55 37 -7 248 -33 305 -39 28 -3 84 -9 125 -13 163 -16 792 -8 913 12 12 2 58 9 102 15 248 35 423 76 665 157 58 19 134 46 170 60 86 33 344 156 348 166 2 4 8 7 13 7 14 0 205 116 303 184 180 126 287 216 466 396 282 281 511 593 775 1055 43 75 178 347 225 455 100 227 236 602 286 790 59 220 95 364 120 485 6 28 45 245 50 275 2 14 7 41 10 60 3 19 8 49 10 65 2 17 6 46 9 65 15 100 35 262 40 335 3 39 8 89 10 112 22 225 33 803 21 1043 -3 41 -7 129 -11 195 -3 66 -8 136 -10 155 -2 19 -6 76 -10 125 -3 50 -8 101 -10 115 -2 14 -6 57 -10 95 -7 72 -12 113 -20 175 -2 19 -7 55 -10 80 -6 46 -43 295 -51 340 -2 14 -9 54 -15 90 -5 36 -16 97 -24 135 -8 39 -17 84 -20 100 -12 68 -18 97 -50 248 -19 87 -47 204 -61 260 -14 56 -27 109 -29 117 -30 147 -232 810 -253 832 -4 4 -7 -23 -8 -60z"></path>
-                        </svg>
-                        </a>
-                        <button class="navbar-close">
-                        <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                    </div>
-                    <div>
-                        <ul>
-                            <li class="mb-1">
-                                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="index">Home</a>
-                            </li>
-                            <li class="mb-1">
-                                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="about">About Us</a>
-                            </li>
-                            <li class="mb-1">
-                                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Romms</a>
-                            </li>
-                            
-                            <li class="mb-1">
-                                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto">
-                        <div class="pt-6">
-                            <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="register">Sign in</a>
-                            <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="login">Sign Up</a>
-                            
-                        </div>
-                        <p class="my-4 text-xs text-center text-gray-400">
-                            <span>Copyright © 2021</span>
-                        </p>
-                    </div>
-                </nav>
-            </div>
-
-            <h1 class="text-4xl font-bold text-center mt-8 mb-4 dark:text-white"> OUR ROOMS</h1>
+            <h1  class="text-4xl font-bold text-center mt-8 mb-4 dark:text-white"> OUR ROOMS</h1>
               
 
             <div class=" mb-8 py-8 px-8 max-w-xl mx-auto bg-gradient-to-r dark:bg-gray-700 rounded-xl shadow-lg  space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
@@ -126,7 +29,17 @@
                       <option selected>_____</option>
                       <option value="One">Lit single</option>
                       <option value="Two">double</option>
-                      <option value="Three">suites</option>
+                      <option value="Three" id="suite">suites</option>
+                     
+                    </select>
+                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-600 dark:focus:border-purple-500 ">
+                      <option selected>_____</option>
+                      <option value="One">Standard suite rooms</option>
+                      <option value="Two">Junior</option>
+                      <option value="three">Presidential suite</option>
+                      <option value="four">Penthouse suites</option>
+                      <option value="five">Honeymoon suites</option>
+                      <option value="nine">Bridal suites</option>
                      
                     </select>
 
@@ -134,23 +47,49 @@
 
                     <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-3xl border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 ">submit</button>
                 </div>
+                
             </div>
+            <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true ) { ?>
+            <div class="flex justify-center">
+                <a href="add">
+            <button class=" inline-flex items-center justify-center w-10 h-10 mr-2 text-gray-50 transition-colors duration-150 bg-gray-800 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+             </button>
+            </a>
+            <?php } ?>
+           
+            </div>
+   
              <!-- Card -->
             <div class="flex items-center justify-center">
                 <div class="grid grid-cols-3 mx-auto my-auto">
+                    
 
 
                     <div class="w-72 flex flex-col bg-slate-800  shadow-slate-800/50 dark:bg-gray-700 rounded-lg shadow-lg m-4 p-4">
-                        <div class="text-2xl font-bold dark:text-white mb-4">Deluxe Room</div>
+                        <div name="Number"  class="text-2xl font-bold dark:text-white mb-4"><span class="number">107</span>
+                        <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true ) { ?>
+                         <a href="update"><button class="inline-flex items-center justify-center w-10 h-10 ml-10 text-gray-50 transition-colors duration-150 dark:bg-gray-700 rounded-full focus:shadow-outline hover:bg-gray-800">
+                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
+                         </button></a>
+                        
+                         <a href="delete"><button class="text-gray-50 hover:text-gray-100 text-sm dark:bg-red-700 hover:bg-red-800 border border-red-500 rounded-r-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                           </svg>
+                         </button>
+                     </a>
+                     <?php } ?>
+                        </div>
                         <img src="images/Dark bedroom instagram post (7).png" class="rounded-lg w-full h-32 object-cover" alt="Deluxe room">
                         <div class="flex flex-col mt-4">
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></svg>
-                                <span class="dark:text-slate-400">2 Guests</span>
+                                <span  class="dark:text-slate-400">2 Guests</span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></svg>
-                                <span class="dark:text-slate-400">1 Bed</span>
+                                <span name="size" class="dark:text-slate-400">1 Bed</span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></svg>
@@ -187,11 +126,24 @@
                 
                             </div>
                         </div>
-                        <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span>99 <span class="text-gray-400 text-sm">/night</span></div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
+                        <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span><span name="price">99</span><span class="text-gray-400 text-sm">/night</span></div>
+                        <button name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
                     </div>
                     <div class="w-72 flex flex-col bg-slate-800  shadow-slate-800/50 dark:bg-gray-700 rounded-lg shadow-lg m-4 p-4">
-                        <div class="text-2xl font-bold dark:text-white mb-4">Deluxe Room</div>
+                        <div class="text-2xl font-bold dark:text-white mb-4"><span class="number">113</span>
+                        <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true ) { ?>
+                        <a href="update"><button class="inline-flex items-center justify-center w-10 h-10 ml-10 text-gray-50 transition-colors duration-150 dark:bg-gray-700 rounded-full focus:shadow-outline hover:bg-gray-800">
+                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
+                         </button></a>
+                         <a href="delete"><button  class="text-gray-50 hover:text-gray-100 text-sm dark:bg-red-700 hover:bg-red-800 border border-red-500 rounded-r-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                           </svg>
+                         </button>
+                     </a>
+                     <?php } ?>
+                         
+                        </div>
                         <img src="images/Dark bedroom instagram post (6).png" class="rounded-lg w-full h-32 object-cover" alt="Deluxe room">
                         <div class="flex flex-col mt-4">
                             <div class="flex items-center mb-2">
@@ -237,20 +189,32 @@
                                 
                             </div>
                         </div>
-                        <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span>99<span class="text-gray-400 text-sm">/night</span></div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
+                        <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span><span name="price">99</span><span class="text-gray-400 text-sm">/night</span></div>
+                        <button name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
                     </div>
                     <div class="w-72 flex flex-col bg-slate-800  shadow-slate-800/50 dark:bg-gray-700 rounded-lg shadow-lg m-4 p-4">
-                        <div class="text-2xl font-bold dark:text-white mb-4">Deluxe Room</div>
+                        <div class="text-2xl font-bold dark:text-white mb-4"><span class="number">34</span>
+                        <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true ) { ?>
+                        <a href="update"><button class="inline-flex items-center justify-center w-10 h-10 ml-10 text-gray-50 transition-colors duration-150 dark:bg-gray-700 rounded-full focus:shadow-outline hover:bg-gray-800">
+                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
+                         </button></a>
+                         <a href="delete"><button class="text-gray-50 hover:text-gray-100 text-sm dark:bg-red-700 hover:bg-red-800 border border-red-500 rounded-r-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                           </svg>
+                         </button>
+                     </a>
+                     <?php } ?>
+                        </div>
                         <img src="images/Dark bedroom instagram post (9).png" class="rounded-lg w-full h-32 object-cover" alt="Deluxe room">
                         <div class="flex flex-col mt-4">
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></svg>
-                                <span class="dark:text-slate-400">2 Guests</span>
+                                <span name="size" class="dark:text-slate-400">2 Guests</span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></svg>
-                                <span class="dark:text-slate-400">1 Bed</span>
+                                <span name="bedroom_type" class="dark:text-slate-400">1 Bed</span>
                             </div>
                             <div class="flex items-center mb-2">
                                 <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></svg>
@@ -287,8 +251,8 @@
                                 
                             </div>
                         </div>
-                        <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span>99<span class="text-gray-400 text-sm">/night</span></div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
+                        <div  class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span><span name="price">99</span><span class="text-gray-400 text-sm">/night</span></div>
+                        <button name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
                     </div>
 
 
@@ -296,7 +260,7 @@
 
 
             </div>
-        </body>
+        </div>
 
         <script>
             // Burger menus
@@ -347,85 +311,3 @@
                 <div class="w-8 h-8 bg-gray-900 rounded-full"></div>
             </div>
         </div>
-        <!-- Foooter -->
-        <section class="dark:bg-gray-600 ">
-            <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 ">
-                <nav class="flex flex-wrap justify-center -mx-5 -my-2 ">
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    About
-                </a>
-                    </div>
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    Rooms
-                </a>
-                    </div>
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    Team
-                </a>
-                    </div>
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    Facilities
-                </a>
-                    </div>
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    Contact
-                </a>
-                    </div>
-                    <div class="px-5 py-2 ">
-                        <a href="# " class="text-base leading-6 text-gray-500 hover:text-gray-50 ">
-                    Terms
-                </a>
-                    </div>
-                </nav>
-
-
-                <div class="flex justify-center mt-8 space-x-6 ">
-                    <a href="# " class="text-gray-400 hover:text-gray-50 ">
-                        <span class="sr-only ">Facebook</span>
-                        <svg class="w-6 h-6 " aria-hidden="true " fill="currentColor " viewBox="0 0 24 24 ">
-                    <path fill-rule="evenodd " d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443
-        2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z " clip-rule="evenodd "></path>
-                </svg>
-                    </a>
-                    <a href="# " class="text-gray-400 hover:text-gray-50 ">
-                        <span class="sr-only ">Instagram</span>
-                        <svg class="w-6 h-6 " aria-hidden="true " fill="currentColor " viewBox="0 0 24 24 ">
-                    <path fill-rule="evenodd " d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06
-        4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153
-        4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901
-        2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207
-        1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097
-        3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2
-        0 110 2.4 1.2 1.2 0 010-2.4z " clip-rule="evenodd "></path>
-                </svg>
-                    </a>
-                    <a href="# " class="text-gray-400 hover:text-gray-50 ">
-                        <span class="sr-only ">Twitter</span>
-                        <svg class="w-6 h-6 " aria-hidden="true " fill="currentColor " viewBox="0 0 24 24 ">
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287
-        4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84 "></path>
-                </svg>
-                    </a>
-                    <a href="# " class="text-gray-400 hover:text-gray-50 ">
-                        <span class="sr-only ">GitHub</span>
-                        <svg class="w-6 h-6 " aria-hidden="true " fill="currentColor " viewBox="0 0 24 24 ">
-                    <path fill-rule="evenodd " d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608
-        1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115
-        2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484
-        17.522 2 12 2z " clip-rule="evenodd "></path>
-                </svg>
-                    </a>
-
-                </div>
-                <p class="mt-8 text-base leading-6 text-center text-gray-400 ">
-                    © 2022 SRHotel, Inc. All rights reserved.
-                </p>
-            </div>
-        </section>
-
-</html>

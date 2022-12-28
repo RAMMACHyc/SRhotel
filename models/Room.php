@@ -3,7 +3,7 @@
 class Room {
 
 	static public function getAll(){
-		$stmt = DB::connect()->prepare('SELECT * FROM srhotel');
+		$stmt = DB::connect()->prepare('SELECT * FROM bedroom');
 		$stmt->execute();
 		return $stmt->fetchAll();
 		$stmt->close();
@@ -13,11 +13,11 @@ class Room {
     {
         $id = $data['id'];
         try {
-            $query = "SELECT * FROM srhotel WHERE id=:id";
+            $query = "SELECT * FROM bedroom WHERE id=:id";
             $statement = DB::connect()->prepare($query);
             $statement->execute(array(":id" => $id));
-            $travell = $statement->fetch(PDO::FETCH_OBJ);
-            return $travell;
+            $bedroom = $statement->fetch(PDO::FETCH_OBJ);
+            return $bedroom;
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }
@@ -25,14 +25,15 @@ class Room {
 	
 	static public function add($data)
     {
-        $stmt = DB::connect()->prepare("INSERT INTO srhotel(name,prix,date,image) VALUES (:name,:prix,:date,:image)");
-        $stmt->bindParam(':name', $data['name'], PDO::PARAM_STR);
-        $stmt->bindParam(':prix', $data['prix'], PDO::PARAM_STR);
-        $stmt->bindParam(':date', $data['date'], PDO::PARAM_STR);
+        $stmt = DB::connect()->prepare("INSERT INTO bedroom(number,size,bed_type,price,image) VALUES (:number,:size,:bed_type,:price,:image)");
+        $stmt->bindParam(':number', $data['number'], PDO::PARAM_STR);
+        $stmt->bindParam(':size', $data['size'], PDO::PARAM_STR);
+        $stmt->bindParam(':bed_type', $data['bed_type'], PDO::PARAM_STR);
+        $stmt->bindParam(':price', $data['price'], PDO::PARAM_STR);
         $stmt->bindParam(':image', $data['image'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            header('Location: http://localhost/srhotel/Rooms');
+            header('Location: http://localhost/hotelsr/Rooms');
             return 'ok';
 
 
@@ -46,13 +47,13 @@ class Room {
 
 	static public function update($data)
     {
-        $stmt = DB::connect()->prepare("UPDATE srhotel SET name = :name,prix = :prix,image = :image,date =:date WHERE id = :id");
+        $stmt = DB::connect()->prepare("UPDATE bedroom SET number = :number,size = :size,bed_type = :bed_type,image =:image WHERE id = :id");
 
         $stmt->bindParam(':id',$data['id']);
-        $stmt->bindParam(':name',$data['name']);
-        $stmt->bindParam(':prix',$data['prix']);
+        $stmt->bindParam(':number',$data['number']);
+        $stmt->bindParam(':size',$data['size']);
+        $stmt->bindParam(':bed_type',$data['bed_type']);
         $stmt->bindParam(':image',$data['image']);
-		$stmt->bindParam(':date', $data['date']);
         if ($stmt->execute()) {
 
             return 'ok';
@@ -67,7 +68,7 @@ class Room {
     {
         $id = $data['id'];
         try {
-            $query = "DELETE FROM srhotel WHERE id=:id";
+            $query = "DELETE FROM bedroom WHERE id=:id";
             $statement = DB::connect()->prepare($query);
             $statement->execute(array(":id" => $id));
             if ($statement->execute()) {
@@ -82,6 +83,7 @@ class Room {
             echo 'erreur' . $ex->getMessage();
         }
     }
+    
 }
                  
 ?>
