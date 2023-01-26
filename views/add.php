@@ -15,7 +15,7 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
   <div class="flex justify-center">
 
     <div class="mt-5 md:col-span-2 md:mt-0">
-      <form  method="POST" enctype="multipart/form-data">
+      <form  action="" method="POST" enctype="multipart/form-data">
         <div class="shadow sm:overflow-hidden sm:rounded-md">
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
             <div class="grid grid-cols-3 gap-6">

@@ -33,7 +33,7 @@ class Room {
         $stmt->bindParam(':image', $data['image'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            header('Location: http://localhost/hotelsr/Rooms');
+            header('Location: ./Rooms');
             return 'ok';
 
 

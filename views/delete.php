@@ -1,10 +1,11 @@
+
+<?php if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
+
+Redirect::to('index');} 
+?>
 <?php 
 	if (isset($_POST['id'])) {
-		$exitTravell = new RoomController();
-		$exitTravell->deleteRoom();
+		$exittask= new RoomController();
+		$exittask->deleteRoom();
  	}
-	 if(!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
-		redirect::to('index');
-	  
-		}
 ?>
