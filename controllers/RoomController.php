@@ -22,8 +22,6 @@ class RoomController
 			  'bed_type' => $_POST['bed_type'],
 			  'image' => file_get_contents($_FILES['image']['tmp_name']),
 			);
-			
-
 			$result = Room::add($data);
 			if($result === 'ok'){
 			  // Form was submitted successfully
