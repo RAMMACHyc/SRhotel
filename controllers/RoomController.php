@@ -8,6 +8,7 @@ class RoomController
 		$bedroom = Room::getAll();
 		return $bedroom;
 	}
+	
 
 	public function addRoom() {
 		if (isset($_POST['submit'])) {
@@ -21,6 +22,7 @@ class RoomController
 			  'number' => $_POST["Number"],
 			  'size' => $_POST["size"],
 			  'bed_type' => $_POST["bed_type"],
+			  'price' => $_POST["price"],
 			  'image' => file_get_contents($_FILES['imag']['tmp_name']),
 			);
 			$result = Room::add($data);
@@ -52,6 +54,7 @@ class RoomController
 				'number' => $_POST['number'],
 				'size' => $_POST['size'],
 				'bed_type' => $_POST['bed_type'],
+				'price' => $_POST['price']
 			);
 	
 			// Check if an image was selected
@@ -78,8 +81,8 @@ class RoomController
 			$data['id'] = $_POST['id'];
 			$result = Room::delete($data);
 			if($result === 'ok'){
-				// Redirect::to('Rooms');
-				echo "zbbbbbb";
+				Redirect::to('Rooms');
+				
 			}else{
 				echo $result;
 			}

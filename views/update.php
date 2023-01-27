@@ -40,7 +40,7 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <label for="first-name" class="block text-sm font-medium text-gray-700">Number</label>
-                      <input type="text" name="Number" autocomplete="given-name" value="<?php echo $room->Number; ?>" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                      <input type="number" name="number" autocomplete="given-name" value="<?php echo $room->number; ?>" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
@@ -52,12 +52,29 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
 
                     <div class="col-span-6 sm:col-span-3">
                       <label for="country" class="block text-sm font-medium text-gray-700">bedroom_type</label>
-                      <select id="country" name="bed_type" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                        <option>gvrg</option>
-                        <option>ffrr</option>
-                        <option>gtgv</option>
-                        <option>gtgv</option>
-                      </select>
+                       <select id="country" name="bed_type" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm" onchange="showSelect(this)" required>
+                        <option >Lit single</option>
+                        <option >double</option>
+                        <option value="3">suite</option>
+                        </select>
+                        <select id="inpu" name="bed_type" autocomplete="country-name" class="mt-1  w-full rounded-md border border-gray-300 bg-purple-200 py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm hidden" required>
+                          <option >Standard suite rooms</option>
+                          <option >Junior</option>
+                          <option >Presidential suite</option>
+                          <option >Penthouse suites</option>
+                          <option >Honeymoon suites</option>
+                          <option >Bridal suites</option>
+                        </select>
+
+                        <script>
+                          function showSelect(select) {
+                            if (select.value == 3) {
+                              document.getElementById('inpu').style.display = "block";
+                            } else {
+                              document.getElementById('inpu').style.display = "none";
+                            }
+                          }
+                        </script>
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                       <label for="last-name" class="block text-sm font-medium text-gray-700">Price</label>
@@ -90,10 +107,11 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
               </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+            <button type="submit" name="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+            </form>
           </div>
         </div>
-        </form>
+
       </div>
     </div>
   </div>
