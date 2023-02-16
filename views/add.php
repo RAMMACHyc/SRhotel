@@ -36,28 +36,32 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
                         <input type="text" name="Number" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm" required>
                       </div>
 
-                      <div class="col-span-6 sm:col-span-3">
+                      <!-- <div class="col-span-6 sm:col-span-3">
                         <label for="last-name" class="block text-sm font-medium text-gray-700">Size</label>
                         <input type="number" name="size" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm" required>
-                      </div>
+                      </div> -->
 
 
                       <div class="col-span-6 sm:col-span-3">
                         <label for="country" class="block text-sm font-medium text-gray-700">bedroom_type</label>
                         <select id="country" name="bed_type" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm" onchange="showSelect(this)" required>
-                          <option >Lit single</option>
-                          <option >double</option>
+                          <option>Lit single</option>
+                          <option>double</option>
                           <option value="3" id="suite">suite</option>
                         </select>
-                        <select id="inpu" name="bed_type" autocomplete="country-name" class="mt-1  w-full rounded-md border border-gray-300 bg-purple-200 py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm hidden" required>
-                          <option >Standard suite rooms</option>
-                          <option >Junior</option>
-                          <option >Presidential suite</option>
-                          <option >Penthouse suites</option>
-                          <option >Honeymoon suites</option>
-                          <option >Bridal suites</option>
+                        <select id="inpu" name="suite_type" autocomplete="country-name" class="mt-1  w-full rounded-md border border-gray-300 bg-purple-200 py-2 px-3 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm hidden">
+                          <option value=""></option>
+                          <option>Standard suite rooms</option>
+                          <option>Junior</option>
+                          <option>Presidential suite</option>
+                          <option>Penthouse suites</option>
+                          <option>Honeymoon suites</option>
+                          <option>Bridal suites</option>
                         </select>
-
+                        <!-- <script>
+                          var selectElement = document.getElementById("mySelect");
+                          selectElement.selectedIndex = -1;
+                        </script> -->
                         <script>
                           function showSelect(select) {
                             if (select.value == 3) {

@@ -6,7 +6,6 @@ class AdminController{
             $data['email'] = $_POST['email'];
             $result = user::moderat($data);
             if($result->email === $_POST['email']  && password_verify($_POST['password'],$result->password)){
-
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $result->email;
 

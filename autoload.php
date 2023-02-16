@@ -4,6 +4,7 @@ session_start();
 
 
 require_once './controllers/RoomController.php';
+require_once './controllers/reservationController.php';
 require_once './controllers/HomeController.php';
 
 

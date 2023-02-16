@@ -18,7 +18,7 @@ $rooms = $data->getAllRooms();
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input name="start" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-in">
+                <input name="start_date" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-in">
             </div>
             <span class="mx-4 text-gray-500">to</span>
             <div class="relative">
@@ -27,7 +27,7 @@ $rooms = $data->getAllRooms();
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="date end  onchange="showDiv(this)"">
+                <input name="start_end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
             </div>
         </div>
         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room</label>
@@ -118,14 +118,11 @@ $rooms = $data->getAllRooms();
                             <svg class="w-6 h-6 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd">
                             </svg>
-                            <span class="dark:text-slate-400"><?php echo $room['bed_type']; ?></span>
+                            <span class="dark:text-slate-400"><?php  if ( $room['bed_type'] !== 'suite' ) { 
+                                                                        echo $room['bed_type']; 
+                                                                        } echo $room['suite_type']; ?></span>
                         </div>
-                        <div class="flex items-center mb-2">
-                            <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd">
-                            </svg>
-                            <span name="size" class="dark:text-slate-400"><?php echo $room['size']; ?></span>
-                        </div>
+                       
                         <div class="flex items-center mb-2">
                             <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd">
@@ -164,9 +161,18 @@ $rooms = $data->getAllRooms();
                         </div>
 
                     </div>
+
+
+                <form method="POST" class="ms-1" action="reservation">
+
+                            <input type="hidden" name="id" value="<?php echo $room['id']; ?>">
+
                     <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span><span name="price"><?php echo $room['price']; ?></span><span class="text-gray-400 text-sm">/night</span></div>
+                    
                     <button name="submit" name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
                 </div>
+                </form>
+
 
 
             </div>

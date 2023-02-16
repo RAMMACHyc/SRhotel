@@ -13,17 +13,18 @@ class RoomController
 	public function addRoom() {
 		if (isset($_POST['submit'])) {
 		  // Check if any of the form fields are empty
-		  if (empty($_POST['number']) and empty($_POST['size']) and empty($_FILES['image']) and empty($_POST['bed_type'])) {
+		  if (empty($_POST['number']) and empty($_POST['size']) and empty($_FILES['image']) and empty($_POST['bed_type']) and empty($_POST["suite_type"])) {
 				var_dump($_POST['number']);
 			// Display error message
 			echo "All form fields are required. Please fill out the form and try again.";
 		  } else {
 			$data = array(
 			  'number' => $_POST["Number"],
-			  'size' => $_POST["size"],
 			  'bed_type' => $_POST["bed_type"],
+			  'suite_type'=> $_POST["suite_type"],
 			  'price' => $_POST["price"],
 			  'image' => file_get_contents($_FILES['imag']['tmp_name']),
+			  
 			);
 			$result = Room::add($data);
 			if($result === 'ok'){
@@ -52,8 +53,8 @@ class RoomController
 			$data = array(
 				'id' => $_POST['id'],
 				'number' => $_POST['number'],
-				'size' => $_POST['size'],
 				'bed_type' => $_POST['bed_type'],
+				'suite_type' => $_POST['suite_type'],
 				'price' => $_POST['price']
 			);
 	
