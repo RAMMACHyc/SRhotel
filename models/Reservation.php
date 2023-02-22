@@ -1,5 +1,6 @@
 <?php 
 
+
 class reservation {
     static public function getAllReser(){
 		$stmt = DB::connect()->prepare('
@@ -10,7 +11,7 @@ class reservation {
         r.end_date
         FROM bedroom b
         JOIN reservation r
-        ON b.id = r.id 
+        ON b.id = r.bedroom_id 
         JOIN users
         ON r.user_id = users.id;
         ');
@@ -19,19 +20,37 @@ class reservation {
 		$stmt->close();
 		$stmt = null;
 	}
+    static public function getVideRoom() {
+        $stmt = DB::connect()->prepare("
+        SELECT *
+        FROM bedroom
+        WHERE bed_type = 'lit single' AND suite_type = ''
+        AND id NOT IN (
+        SELECT bedroom_id
+        FROM reservation
+        WHERE (
+        (:date_debut BETWEEN start_date AND end_date)
+        OR (:date_end BETWEEN start_date AND end_date)
+        OR (start_date BETWEEN :date_debut AND :date_end)
+        )
+        )
+        
+        ");
 
-	// static public function getAllReser(){
-	// 	$stmt = DB::connect()->prepare('SELECT * FROM servation');
-	// 	$stmt->execute();
-	// 	return $stmt->fetchAll();
-	// 	$stmt->close();
-	// 	$stmt = null;
-	// }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $stmt->closeCursor();
+        return $result;
+    }
+    
+    
+  
+	
 	static public function getReservation($data)
     {
         $id = $data['id'];
         try {
-            $query = "SELECT * FROM servation WHERE id=:id";
+            $query = "SELECT * FROM reservation WHERE id=:id";
             $statement = DB::connect()->prepare($query);
             $statement->execute(array(":id" => $id));
             $reservation = $statement->fetch(PDO::FETCH_OBJ);
@@ -40,40 +59,35 @@ class reservation {
             echo 'erreur' . $ex->getMessage();
         }
     }
-    static public function addreservation($data)
-    {
-        $stmt = DB::connect()->prepare("INSERT INTO reservation(bedroom_id,user_id,size,rtype,start_date,start_end) VALUES (:bedroom_id,:user_id,:size,:rtype,:start_date,:start_end)");
-        $stmt->bindParam(':bedroom_id', $data['bedroom_id'], PDO::PARAM_STR);
-        $stmt->bindParam(':user_id', $data['user_id'], PDO::PARAM_STR);
-        $stmt->bindParam(':rtype', $data['rtype'], PDO::PARAM_STR);
+    static public function addReservation($data) {
+        $stmt = DB::connect()->prepare("
+            INSERT INTO reservation(user_id, bedroom_id, start_date, end_date)
+            VALUES (:user_id, :bedroom_id, :start_date, :end_date)
+        ");
+        $stmt->bindParam(':user_id', $data['user_id'], PDO::PARAM_INT);
+        $stmt->bindParam(':bedroom_id', $data['bedroom_id'], PDO::PARAM_INT);
         $stmt->bindParam(':start_date', $data['start_date'], PDO::PARAM_STR);
-        $stmt->bindParam(':start_end', $data['start_end'], PDO::PARAM_STR);
-
-
+        $stmt->bindParam(':end_date', $data['end_date'], PDO::PARAM_STR);
+    
         if ($stmt->execute()) {
-            header('Location: ./Rooms');
-            return 'ok';
-
-
+            return true;
         } else {
-            return 'error';
+            return false;
         }
+    
         $stmt->close();
         $stmt = null;
     }
-
+    
+   
 
 	static public function updatereservation($data)
     {
-        $stmt = DB::connect()->prepare("UPDATE reservation SET number = :number,size = :size,bed_type = :bed_type,price =:price,image =:image WHERE id = :id");
-
+        $stmt = DB::connect()->prepare("UPDATE reservation SET start_date = :start_date,end_date = :end_date WHERE id = :id");
         $stmt->bindParam(':id',$data['id']);
-        $stmt->bindParam(':number',$data['number']);
-        $stmt->bindParam(':bed_type',$data['bed_type']);
-        $stmt->bindParam(':price',$data['price']);
-        $stmt->bindParam(':image',$data['image']);
+        $stmt->bindParam(':start_date',$data['start_date']);
+        $stmt->bindParam(':end_date',$data['end_date']);
         if ($stmt->execute()) {
-
             return 'ok';
         } else {
             return 'error';
@@ -86,7 +100,7 @@ class reservation {
     {
         $id = $data['id'];
         try {
-            $query = "DELETE FROM servation WHERE id=:id";
+            $query = "DELETE FROM reservation WHERE id=:id";
             $statement = DB::connect()->prepare($query);
             $statement->execute(array(":id" => $id));
             if ($statement->execute()) {

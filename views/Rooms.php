@@ -1,12 +1,13 @@
 <?php
+
 $data = new RoomController();
 $rooms = $data->getAllRooms();
 
 ?>
+
 <?php require './views/includes/header.php'; ?>
 
 <h1 class="text-4xl font-bold text-center mt-8 mb-4 dark:text-white"> OUR ROOMS</h1>
-
 
 <div class=" mb-8 py-8 px-8 max-w-xl mx-auto bg-gradient-to-r dark:bg-gray-700 rounded-xl shadow-lg  space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
     <div class="text-center space-y-2 sm:text-left">
@@ -18,7 +19,7 @@ $rooms = $data->getAllRooms();
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input name="start_date" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-in">
+                <input name="start_date" min="<?php echo date("Y-m-d"); ?>" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Check-in">
             </div>
             <span class="mx-4 text-gray-500">to</span>
             <div class="relative">
@@ -27,7 +28,7 @@ $rooms = $data->getAllRooms();
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input name="start_end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                <input name="start_end" min="<?php echo date("Y-m-d"); ?>" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
             </div>
         </div>
         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room</label>
@@ -81,7 +82,8 @@ $rooms = $data->getAllRooms();
 
 
     <!-- Card -->
-    <div class="flex  justify-center">
+    <div class="container  mx-auto ">
+    <div class="grid grid-cols-1 gap-x-8 md:grid-cols-2 lg:grid-cols-3 ">
         <?php foreach ($rooms as $room) : ?>
 
             <div>
@@ -169,7 +171,7 @@ $rooms = $data->getAllRooms();
 
                     <div class="text-3xl font-bold text-purple-500 mt-auto mb-4"><span class="text-purple-300">$</span><span name="price"><?php echo $room['price']; ?></span><span class="text-gray-400 text-sm">/night</span></div>
                     
-                    <button name="submit" name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
+                    <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Book Now</button>
                 </div>
                 </form>
 
@@ -180,6 +182,7 @@ $rooms = $data->getAllRooms();
         <?php endforeach; ?>
 
 
+    </div>
     </div>
 
 

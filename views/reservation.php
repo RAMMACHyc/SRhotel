@@ -1,4 +1,14 @@
 <?php
+if (isset($_POST['submit'])) {
+  $newRervation = new ReservationController();
+  $newRervation->addreservation();
+}
+if (isset($_POST['id'])) {
+  $existRerservation = new ReservationController();
+  $reservation = $existRerservation->getOneRerservation();
+}
+
+
 if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
   redirect::to('login');
 }
@@ -16,63 +26,62 @@ if (isset($_POST['id'])) {
 
   <!-- COMPONENT CODE -->
   <div class="container mx-auto my-4 px-4 lg:px-20">
-
+   <?php include('./views/includes/alerts.php');?>
     <div class="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
       <div class="flex">
-        <h1 class="font-bold uppercase text-3xl"> reservation</h1>
+        <h1 class="font-bold text-gray-500 uppercase text-3xl"> reservation</h1>
       </div>
       <form method="POST" enctype="multipart/form-data">
   
         <div class="form-group">
           <input type="hidden" name="id" value="<?php echo $room->id; ?>">
-
         </div>
 
-
-
         <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-          <input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="date" />
-          <input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="date" />
+          <input name="start_date" min="<?php echo date("Y-m-d"); ?>"  class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="date" />
+          <input name="end_date" min="<?php echo date("Y-m-d"); ?>" class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="date"/>
 
-          <p class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->number; ?></p>
+          <p class="w-full bg-gray-700 text-gray-500 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo  $room->number; ?></p>
           <?php if ( $room->bed_type !== 'suite' ) { ?>
 
-          <p class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->bed_type; ?></p>
+          <p class="w-full bg-gray-700 text-gray-500 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->bed_type; ?></p>
           <?php } ?>
           <?php if ( $room->bed_type == 'suite' ) { ?>
-            <p class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->suite_type; ?></p>
+            <p class="w-full bg-gray-700 text-gray-500 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->suite_type; ?></p>
           <?php } ?>
 
 
         </div>
         
         <div class="my-4">
-          <p class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->price; ?></p>
+          <p class="w-full bg-gray-700 text-gray-500 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"><?php echo $room->price . "$";  ?></p>
         </div>
         <div class="my-2 w-1/2 lg:w-1/4">
-          <button class="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
+          <input type="submit" name="submit" class="uppercase text-sm font-bold tracking-wide bg-indigo-900 text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline">
-            <i class="bi bi-building-check"></i>
-            submit
-          </button>
+          
         </div>
+      </form>
     </div>
+    
 
-    <div class="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
+    <div class="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-indigo-900 rounded-2xl">
       <div class="flex flex-col text-white">
-        <h1 class="font-bold uppercase text-4xl my-4">Shotel</h1>
-        <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          tincidunt arcu diam,
-          eu feugiat felis fermentum id. Curabitur vitae nibh viverra, auctor turpis sed, scelerisque ex.
-        </p>
+        <h1 class="font-bold uppercase text-4xl my-4"><?php echo $room->number; ?></h1>
+        
 
         <div class="flex my-4 w-2/3 lg:w-1/2">
           <div class="flex flex-col">
             <i class="fas fa-map-marker-alt pt-2 pr-2" />
           </div>
           <div class="flex flex-col">
-            <h2 class="text-2xl">Main Office</h2>
-            <p class="text-gray-400">5555 Tailwind RD, Pleasant Grove, UT 73533</p>
+            <h2 class="text-2xl">Type Room</h2>
+            <?php if ( $room->bed_type !== 'suite' ) { ?>
+            <p class="text-gray-400"><?php echo $room->bed_type; ?></p>
+            <?php } ?>
+            <?php if ( $room->bed_type == 'suite' ) { ?>
+            <p class="text-gray-400"><?php echo $room->suite_type; ?></p>
+            <?php } ?>
           </div>
         </div>
 
@@ -81,9 +90,9 @@ if (isset($_POST['id'])) {
             <i class="fas fa-phone-alt pt-2 pr-2" />
           </div>
           <div class="flex flex-col">
-            <h2 class="text-2xl">Call Us</h2>
-            <p class="text-gray-400">Tel: xxx-xxx-xxx</p>
-            <p class="text-gray-400">Fax: xxx-xxx-xxx</p>
+            <h2 class="text-2xl">Price</h2>
+            <p class="text-gray-400"><?php echo $room->price . "$"; ?></p>
+            
           </div>
         </div>
 
@@ -102,16 +111,16 @@ if (isset($_POST['id'])) {
 </div>
 
 <!-- BUY ME A PIZZA AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
-<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+<!-- <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
   <div>
     <a title="Buy me a pizza" href="" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
       <img class="object-cover object-center w-full h-full rounded-full" src="" />
-      <!-- https://img.icons8.com/emoji/48/000000/pizza-emoji.png -->
+      
     </a>
   </div>
-</div>
+</div> -->
 
-
+<!-- https://img.icons8.com/emoji/48/000000/pizza-emoji.png -->
 
 
 
